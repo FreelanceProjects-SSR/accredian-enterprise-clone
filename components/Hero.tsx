@@ -13,26 +13,26 @@ export default function Hero() {
   const workflow = [
     {
       step: "01",
-      title: "Map skill gaps",
-      description: "Assess team readiness",
+      title: "Assess",
+      description: "Skill readiness",
       icon: ClipboardCheck
     },
     {
       step: "02",
-      title: "Build pathways",
-      description: "Design role-based learning",
+      title: "Design",
+      description: "Custom learning paths",
       icon: Route
     },
     {
       step: "03",
-      title: "Run cohorts",
-      description: "Deliver mentor-led sessions",
+      title: "Deliver",
+      description: "Mentor-led cohorts",
       icon: UsersRound
     },
     {
       step: "04",
-      title: "Track outcomes",
-      description: "Measure progress clearly",
+      title: "Measure",
+      description: "Progress reporting",
       icon: BarChart3
     }
   ];
@@ -89,28 +89,32 @@ export default function Hero() {
               <PlayCircle className="h-5 w-5" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-10 max-w-3xl rounded-lg border border-white/70 bg-white/86 p-3 shadow-soft backdrop-blur-md">
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 max-w-4xl">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {workflow.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.step}
-                    className="group rounded-lg p-3 transition hover:bg-brand-mint"
+                    className="group relative overflow-hidden rounded-lg border border-white/22 bg-brand-navy/88 p-4 text-white shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-brand-amber/70 hover:bg-brand-navy hover:shadow-lift"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-blue text-white transition group-hover:bg-brand-navy">
+                    <div
+                      className="absolute inset-x-4 top-0 h-1 rounded-b-full bg-brand-amber opacity-80 transition group-hover:opacity-100"
+                      aria-hidden="true"
+                    />
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/12 text-white ring-1 ring-white/15 transition group-hover:bg-brand-amber group-hover:text-brand-navy">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      <span className="text-xs font-black uppercase tracking-[0.16em] text-brand-cyan">
+                      <span className="text-xs font-black uppercase tracking-[0.16em] text-white/58">
                         {item.step}
                       </span>
                     </div>
-                    <p className="mt-3 text-base font-black text-brand-navy">
+                    <p className="mt-4 text-2xl font-black leading-none text-white">
                       {item.title}
                     </p>
-                    <p className="mt-1 text-sm font-semibold text-slate-600">
+                    <p className="mt-2 min-h-10 text-sm font-semibold leading-5 text-white/86">
                       {item.description}
                     </p>
                   </div>
