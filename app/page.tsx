@@ -1,4 +1,5 @@
 import Benefits from "@/components/Benefits";
+import ContactHighlights from "@/components/ContactHighlights";
 import CTA from "@/components/CTA";
 import Features from "@/components/Features";
 import FAQ from "@/components/FAQ";
@@ -34,21 +35,7 @@ export default function Home() {
                 title="Ready to empower your team?"
                 description="Share a few details and an enterprise learning advisor will help map a workforce capability plan for your organization."
               />
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {[
-                  "Customized training roadmap",
-                  "Cohort and role-based learning paths",
-                  "Progress tracking for business leaders",
-                  "Mentor-led delivery at enterprise scale"
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg border border-slate-200 bg-brand-soft px-4 py-3 text-sm font-semibold text-brand-navy"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
+              <ContactHighlights />
             </div>
             <LeadCaptureForm />
           </div>
