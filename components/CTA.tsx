@@ -1,4 +1,4 @@
-import { ArrowDownRight, Download } from "lucide-react";
+import { ArrowDownRight, ListChecks } from "lucide-react";
 import Link from "next/link";
 
 export default function CTA() {
@@ -25,8 +25,8 @@ export default function CTA() {
             href="#programs"
             className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 px-6 py-4 text-sm font-black uppercase text-white transition hover:bg-white hover:text-brand-navy"
           >
-            Download Brochure
-            <Download className="h-5 w-5" aria-hidden="true" />
+            View Programs
+            <ListChecks className="h-5 w-5" aria-hidden="true" />
           </Link>
         </div>
       </div>

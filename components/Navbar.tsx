@@ -9,12 +9,13 @@ const navItems = [
   { label: "Programs", href: "#programs", id: "programs" },
   { label: "Impact", href: "#impact", id: "impact" },
   { label: "Stories", href: "#stories", id: "stories" },
+  { label: "FAQs", href: "#faq", id: "faq" },
   { label: "Contact", href: "#contact", id: "contact" }
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeId, setActiveId] = useState(navItems[0].id);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     const sections = navItems

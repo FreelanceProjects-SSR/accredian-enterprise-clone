@@ -19,12 +19,13 @@ export default function Benefits() {
             src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=80"
             alt="Professionals reviewing learning and performance dashboards"
             fill
+            loading="eager"
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
           <div className="absolute inset-x-0 bottom-0 bg-brand-navy/88 p-6 text-white">
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-brand-mint">
-              Global enterprise partners
+              Enterprise learning teams
             </p>
             <p className="mt-2 text-2xl font-black">
               The future of your workforce starts with intelligence.

@@ -6,21 +6,21 @@ import SectionHeader from "@/components/SectionHeader";
 const testimonials = [
   {
     quote:
-      "Accredian's enterprise program helped our analytics group move from fragmented learning to a measurable capability roadmap.",
-    name: "Sarah Jenkins",
-    role: "VP Engineering, CloudTech"
+      "Our team needs training that connects business goals, learner progress, and practical projects in one clear roadmap.",
+    name: "L&D Leader",
+    role: "Illustrative stakeholder feedback"
   },
   {
     quote:
-      "The applied projects and mentor feedback made the training relevant for our teams from week one.",
-    name: "Michael Chen",
-    role: "Chief Data Officer, Global Finance"
+      "Mentor-led sessions and applied assignments would help learners turn new concepts into repeatable team habits.",
+    name: "Analytics Manager",
+    role: "Illustrative stakeholder feedback"
   },
   {
     quote:
-      "A structured, professional experience with the right level of reporting for business and HR stakeholders.",
-    name: "Elena Rodriguez",
-    role: "HR Director, Innovate Corp"
+      "A useful enterprise program should make participation, completion, and next-step reporting easy for sponsors to review.",
+    name: "Business Sponsor",
+    role: "Illustrative stakeholder feedback"
   }
 ];
 
@@ -31,9 +31,9 @@ export default function Testimonials() {
     <section id="stories" className="bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Success stories"
-          title="Voices of transformation"
-          description="Enterprise learning works best when it creates visible confidence, stronger teams, and repeatable outcomes."
+          eyebrow="Feedback themes"
+          title="Representative enterprise learning needs"
+          description="These cards use original illustrative copy for the assignment and are not real customer testimonials or verified Accredian partner quotes."
           align="center"
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">

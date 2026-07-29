@@ -50,8 +50,8 @@ export async function POST(request: Request) {
   leads.push(lead);
   console.info("New enterprise lead received", {
     id: lead.id,
-    email: lead.email,
-    company: lead.company,
+    hasEmail: Boolean(lead.email),
+    hasCompany: Boolean(lead.company),
     createdAt: lead.createdAt
   });
 

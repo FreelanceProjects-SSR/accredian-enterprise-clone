@@ -1,30 +1,35 @@
-import { ChartNoAxesColumnIncreasing, Globe2, GraduationCap, Users } from "lucide-react";
+import {
+  ChartNoAxesColumnIncreasing,
+  ClipboardCheck,
+  GraduationCap,
+  Users
+} from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 
 const stats = [
   {
-    value: "150%",
-    label: "Highest salary hike",
-    description: "Programs focused on outcomes that improve career mobility.",
+    value: "Skill map",
+    label: "Readiness baseline",
+    description: "Identify role-specific gaps before designing a program.",
     icon: ChartNoAxesColumnIncreasing
   },
   {
-    value: "60%",
-    label: "Average salary hike",
-    description: "Learners report practical impact after applied projects.",
+    value: "Cohorts",
+    label: "Guided learning",
+    description: "Organize learners into practical tracks with mentor support.",
     icon: GraduationCap
   },
   {
-    value: "80%",
-    label: "Positive career impact",
-    description: "Skill growth tied to real roles, teams, and business goals.",
+    value: "Projects",
+    label: "Applied outcomes",
+    description: "Use hands-on work to connect training with job context.",
     icon: Users
   },
   {
-    value: "Global",
-    label: "Enterprise delivery",
-    description: "Scalable cohorts for distributed and hybrid teams.",
-    icon: Globe2
+    value: "Reports",
+    label: "Progress visibility",
+    description: "Give stakeholders a clear view of completion and momentum.",
+    icon: ClipboardCheck
   }
 ];
 
@@ -34,8 +39,8 @@ export default function Stats() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Impact"
-          title="A legacy of excellence and measurable workforce outcomes"
-          description="Accredian-inspired enterprise programs combine structured learning, mentor support, and progress visibility for capability leaders."
+          title="Program highlights designed for measurable learning"
+          description="This assignment uses original, illustrative highlight cards inspired by enterprise training flows. They are not presented as verified Accredian statistics."
           align="center"
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -49,7 +54,7 @@ export default function Stats() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-mint text-brand-blue">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <p className="mt-6 text-3xl font-black text-brand-navy">
+                <p className="mt-6 text-2xl font-black text-brand-navy">
                   {item.value}
                 </p>
                 <h3 className="mt-2 text-base font-bold text-brand-ink">

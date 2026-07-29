@@ -21,13 +21,13 @@ const fields: Array<{
   {
     name: "fullName",
     label: "Full Name",
-    placeholder: "Priya Sharma"
+    placeholder: "Alex Morgan"
   },
   {
     name: "email",
     label: "Work Email",
     type: "email",
-    placeholder: "priya@company.com"
+    placeholder: "alex@example.com"
   },
   {
     name: "phone",
@@ -38,7 +38,7 @@ const fields: Array<{
   {
     name: "company",
     label: "Company Name",
-    placeholder: "Acme Analytics"
+    placeholder: "Example Co."
   }
 ];
 

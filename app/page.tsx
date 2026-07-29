@@ -1,6 +1,7 @@
 import Benefits from "@/components/Benefits";
 import CTA from "@/components/CTA";
 import Features from "@/components/Features";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
@@ -23,6 +24,7 @@ export default function Home() {
         <Programs />
         <Benefits />
         <Testimonials />
+        <FAQ />
         <CTA />
         <section id="contact" className="bg-white py-16 sm:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
