@@ -48,8 +48,16 @@ export default function Footer() {
             Contact
           </h2>
           <address className="mt-4 not-italic text-sm leading-7 text-slate-300">
-            Submit the form above to request a callback from an enterprise
-            learning advisor.
+            Email us:{" "}
+            <a
+              href="mailto:enterprise@accredian.com"
+              className="font-semibold text-white transition hover:text-brand-mint"
+            >
+              enterprise@accredian.com
+            </a>
+            <br />
+            Office Address: 4th Floor, 250, Phase IV, Udyog Vihar,
+            Sector 18, Gurugram, Haryana
           </address>
         </div>
       </div>
