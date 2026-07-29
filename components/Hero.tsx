@@ -1,8 +1,42 @@
-import { ArrowRight, PlayCircle } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  ClipboardCheck,
+  PlayCircle,
+  Route,
+  UsersRound
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
+  const workflow = [
+    {
+      step: "01",
+      title: "Map skill gaps",
+      description: "Assess team readiness",
+      icon: ClipboardCheck
+    },
+    {
+      step: "02",
+      title: "Build pathways",
+      description: "Design role-based learning",
+      icon: Route
+    },
+    {
+      step: "03",
+      title: "Run cohorts",
+      description: "Deliver mentor-led sessions",
+      icon: UsersRound
+    },
+    {
+      step: "04",
+      title: "Track outcomes",
+      description: "Measure progress clearly",
+      icon: BarChart3
+    }
+  ];
+
   return (
     <section
       id="home"
@@ -55,25 +89,34 @@ export default function Hero() {
               <PlayCircle className="h-5 w-5" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              ["Assess", "Skill readiness"],
-              ["Design", "Custom learning paths"],
-              ["Deliver", "Mentor-led cohorts"],
-              ["Measure", "Progress reporting"]
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-lg border border-white/80 bg-white/84 px-4 py-3 shadow-soft backdrop-blur-md transition hover:-translate-y-1 hover:border-brand-blue hover:bg-white"
-              >
-                <p className="text-xl font-black text-brand-navy sm:text-2xl">
-                  {value}
-                </p>
-                <p className="mt-1 text-sm font-semibold text-slate-700">
-                  {label}
-                </p>
-              </div>
-            ))}
+          <div className="mt-10 max-w-3xl rounded-lg border border-white/70 bg-white/86 p-3 shadow-soft backdrop-blur-md">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              {workflow.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.step}
+                    className="group rounded-lg p-3 transition hover:bg-brand-mint"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-blue text-white transition group-hover:bg-brand-navy">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <span className="text-xs font-black uppercase tracking-[0.16em] text-brand-cyan">
+                        {item.step}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-base font-black text-brand-navy">
+                      {item.title}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-slate-600">
+                      {item.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
