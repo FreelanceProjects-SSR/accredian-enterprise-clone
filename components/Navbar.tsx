@@ -2,7 +2,8 @@
 
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import DemoRequestModal from "@/components/DemoRequestModal";
 
 const navItems = [
   { label: "Solutions", href: "#solutions", id: "solutions" },
@@ -15,7 +16,17 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
+
+  const closeDemoModal = useCallback(() => {
+    setIsDemoOpen(false);
+  }, []);
+
+  function openDemoModal() {
+    setIsOpen(false);
+    setIsDemoOpen(true);
+  }
 
   useEffect(() => {
     const sections = navItems
@@ -69,7 +80,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
+              className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition ${
                 activeId === item.id
                   ? "bg-brand-mint text-brand-navy"
                   : "text-slate-600 hover:bg-slate-100 hover:text-brand-navy"
@@ -81,13 +92,15 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href="#contact"
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            onClick={openDemoModal}
             className="inline-flex items-center gap-2 rounded-lg bg-brand-blue px-5 py-3 text-sm font-bold text-white shadow-lift transition hover:bg-brand-navy"
           >
             Book a Demo
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+          </button>
         </div>
 
         <button
@@ -122,17 +135,20 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="#contact"
+            <button
+              type="button"
+              aria-haspopup="dialog"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-5 py-3 text-sm font-bold text-white shadow-lift"
-              onClick={() => setIsOpen(false)}
+              onClick={openDemoModal}
             >
               Book a Demo
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </button>
           </div>
         </div>
       ) : null}
+
+      <DemoRequestModal isOpen={isDemoOpen} onClose={closeDemoModal} />
     </header>
   );
 }

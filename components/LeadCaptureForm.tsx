@@ -1,7 +1,7 @@
 "use client";
 
 import { Send } from "lucide-react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { submitLead } from "@/lib/api";
 import {
   LeadErrors,
@@ -43,6 +43,7 @@ const fields: Array<{
 ];
 
 export default function LeadCaptureForm() {
+  const formId = useId();
   const [form, setForm] = useState<LeadPayload>(emptyLeadPayload);
   const [errors, setErrors] = useState<LeadErrors>({});
   const [status, setStatus] = useState<SubmitState>("idle");
@@ -98,35 +99,39 @@ export default function LeadCaptureForm() {
       noValidate
     >
       <div className="grid gap-5 sm:grid-cols-2">
-        {fields.map((field) => (
-          <label key={field.name} className="block">
-            <span className="text-sm font-bold text-brand-navy">
-              {field.label}
-            </span>
-            <input
-              className={`mt-2 h-12 w-full rounded-lg border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-slate-400 focus:border-brand-blue focus:ring-4 focus:ring-blue-100 ${
-                errors[field.name] ? "border-red-400" : "border-slate-200"
-              }`}
-              type={field.type ?? "text"}
-              value={form[field.name]}
-              placeholder={field.placeholder}
-              autoComplete={getAutocomplete(field.name)}
-              onChange={(event) => updateField(field.name, event.target.value)}
-              aria-invalid={Boolean(errors[field.name])}
-              aria-describedby={
-                errors[field.name] ? `${field.name}-error` : undefined
-              }
-            />
-            {errors[field.name] ? (
-              <span
-                id={`${field.name}-error`}
-                className="mt-1 block text-xs font-semibold text-red-600"
-              >
-                {errors[field.name]}
+        {fields.map((field) => {
+          const errorId = `${formId}-${field.name}-error`;
+
+          return (
+            <label key={field.name} className="block">
+              <span className="text-sm font-bold text-brand-navy">
+                {field.label}
               </span>
-            ) : null}
-          </label>
-        ))}
+              <input
+                className={`mt-2 h-12 w-full rounded-lg border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-slate-400 focus:border-brand-blue focus:ring-4 focus:ring-blue-100 ${
+                  errors[field.name] ? "border-red-400" : "border-slate-200"
+                }`}
+                type={field.type ?? "text"}
+                value={form[field.name]}
+                placeholder={field.placeholder}
+                autoComplete={getAutocomplete(field.name)}
+                onChange={(event) =>
+                  updateField(field.name, event.target.value)
+                }
+                aria-invalid={Boolean(errors[field.name])}
+                aria-describedby={errors[field.name] ? errorId : undefined}
+              />
+              {errors[field.name] ? (
+                <span
+                  id={errorId}
+                  className="mt-1 block text-xs font-semibold text-red-600"
+                >
+                  {errors[field.name]}
+                </span>
+              ) : null}
+            </label>
+          );
+        })}
       </div>
 
       <label className="mt-5 block">
@@ -141,11 +146,13 @@ export default function LeadCaptureForm() {
           placeholder="Tell us about your team size, skill goals, or program timeline."
           onChange={(event) => updateField("message", event.target.value)}
           aria-invalid={Boolean(errors.message)}
-          aria-describedby={errors.message ? "message-error" : undefined}
+          aria-describedby={
+            errors.message ? `${formId}-message-error` : undefined
+          }
         />
         {errors.message ? (
           <span
-            id="message-error"
+            id={`${formId}-message-error`}
             className="mt-1 block text-xs font-semibold text-red-600"
           >
             {errors.message}
