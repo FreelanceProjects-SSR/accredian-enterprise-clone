@@ -41,9 +41,10 @@ export default function Programs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Curriculum"
-          title="Enterprise academies for critical capability areas"
-          description="Select ready-to-deploy programs or customize learning paths around your organization's technology stack, goals, and workforce maturity."
+          title="Enterprise learning academies built for modern teams"
+          description="Choose focused tracks or customize role-based learning paths around your team's technology stack, business goals, and skill maturity."
           align="center"
+          tone="dark"
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
