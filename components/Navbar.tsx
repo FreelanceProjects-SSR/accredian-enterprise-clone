@@ -2,8 +2,7 @@
 
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import DemoRequestModal from "@/components/DemoRequestModal";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "Solutions", href: "#solutions", id: "solutions" },
@@ -16,17 +15,7 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
-
-  const closeDemoModal = useCallback(() => {
-    setIsDemoOpen(false);
-  }, []);
-
-  function openDemoModal() {
-    setIsOpen(false);
-    setIsDemoOpen(true);
-  }
 
   useEffect(() => {
     const sections = navItems
@@ -92,15 +81,13 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <button
-            type="button"
-            aria-haspopup="dialog"
-            onClick={openDemoModal}
+          <Link
+            href="#contact"
             className="inline-flex items-center gap-2 rounded-lg bg-brand-blue px-5 py-3 text-sm font-bold text-white shadow-lift transition hover:bg-brand-navy"
           >
             Book a Demo
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </button>
+          </Link>
         </div>
 
         <button
@@ -135,20 +122,17 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <button
-              type="button"
-              aria-haspopup="dialog"
+            <Link
+              href="#contact"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-brand-blue px-5 py-3 text-sm font-bold text-white shadow-lift"
-              onClick={openDemoModal}
+              onClick={() => setIsOpen(false)}
             >
               Book a Demo
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </button>
+            </Link>
           </div>
         </div>
       ) : null}
-
-      <DemoRequestModal isOpen={isDemoOpen} onClose={closeDemoModal} />
     </header>
   );
 }
