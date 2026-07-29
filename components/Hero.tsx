@@ -89,34 +89,42 @@ export default function Hero() {
               <PlayCircle className="h-5 w-5" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-10 max-w-4xl">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {workflow.map((item) => {
+          <div className="mt-10 max-w-4xl rounded-lg border border-white/20 bg-brand-navy/90 p-3 text-white shadow-lift backdrop-blur-md">
+            <div className="grid gap-1 sm:grid-cols-2 lg:grid-cols-4">
+              {workflow.map((item, index) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.step}
-                    className="group relative overflow-hidden rounded-lg border border-white/22 bg-brand-navy/88 p-4 text-white shadow-soft backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-brand-amber/70 hover:bg-brand-navy hover:shadow-lift"
+                    className={`group rounded-md p-3 transition duration-300 hover:bg-white/10 sm:min-h-[108px] ${
+                      index > 0
+                        ? "lg:border-l lg:border-white/15 lg:pl-5"
+                        : ""
+                    }`}
                   >
-                    <div
-                      className="absolute inset-x-4 top-0 h-1 rounded-b-full bg-brand-amber opacity-80 transition group-hover:opacity-100"
-                      aria-hidden="true"
-                    />
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/12 text-white ring-1 ring-white/15 transition group-hover:bg-brand-amber group-hover:text-brand-navy">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white/10 text-brand-amber ring-1 ring-white/15 transition group-hover:bg-brand-amber group-hover:text-brand-navy">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      <span className="text-xs font-black uppercase tracking-[0.16em] text-white/58">
-                        {item.step}
-                      </span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-black uppercase tracking-[0.18em] text-brand-amber">
+                            {item.step}
+                          </span>
+                          <span
+                            className="h-px w-6 bg-white/20 transition group-hover:bg-brand-amber"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <p className="mt-2 text-xl font-black leading-none text-white">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-sm font-semibold leading-5 text-white/78">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                    <p className="mt-4 text-2xl font-black leading-none text-white">
-                      {item.title}
-                    </p>
-                    <p className="mt-2 min-h-10 text-sm font-semibold leading-5 text-white/86">
-                      {item.description}
-                    </p>
                   </div>
                 );
               })}
