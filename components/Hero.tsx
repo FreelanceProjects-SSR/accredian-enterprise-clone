@@ -16,22 +16,26 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-brand-navy/78" aria-hidden="true" />
+      <div className="absolute inset-0 bg-brand-navy/50" aria-hidden="true" />
       <div
-        className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-brand-navy to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/88 to-brand-navy/25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-transparent"
         aria-hidden="true"
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl rounded-lg border border-white/15 bg-brand-navy/58 p-5 shadow-soft backdrop-blur-sm sm:p-8 lg:bg-brand-navy/50">
           <div className="inline-flex items-center gap-2 rounded-lg border border-brand-cyan/30 bg-brand-navy/90 px-3 py-2 text-sm font-bold text-white shadow-soft backdrop-blur-md">
             <span className="h-2 w-2 rounded-full bg-brand-amber" />
             Enterprise workforce transformation
           </div>
-          <h1 className="mt-6 text-balance text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-balance text-4xl font-black leading-tight text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.55)] sm:text-5xl lg:text-6xl">
             Re-engineering workforce performance.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-100 sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] sm:text-xl">
             Build future-ready Data, AI, analytics, and leadership capability
             through mentor-led enterprise programs designed for measurable
             business impact.
@@ -52,18 +56,23 @@ export default function Hero() {
               <PlayCircle className="h-5 w-5" aria-hidden="true" />
             </Link>
           </div>
-          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
             {[
               ["Assess", "Skill readiness"],
               ["Design", "Custom learning paths"],
               ["Deliver", "Mentor-led cohorts"],
               ["Measure", "Progress reporting"]
             ].map(([value, label]) => (
-              <div key={label} className="border-l border-white/25 pl-4">
-                <p className="text-xl font-black text-white sm:text-2xl">
+              <div
+                key={label}
+                className="rounded-lg border border-white/18 bg-brand-navy/72 px-4 py-3 shadow-sm backdrop-blur-sm"
+              >
+                <p className="text-xl font-black text-white drop-shadow sm:text-2xl">
                   {value}
                 </p>
-                <p className="mt-1 text-sm text-slate-200">{label}</p>
+                <p className="mt-1 text-sm font-medium text-slate-100">
+                  {label}
+                </p>
               </div>
             ))}
           </div>
