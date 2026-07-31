@@ -4,6 +4,7 @@ const capabilityLinks = [
   { label: "Impact", href: "#impact" },
   { label: "Solutions", href: "#solutions" },
   { label: "Programs", href: "#programs" },
+  { label: "Benefits", href: "#benefits" },
   { label: "Stories", href: "#stories" },
   { label: "FAQs", href: "#faq" }
 ];

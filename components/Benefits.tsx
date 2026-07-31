@@ -12,7 +12,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="bg-brand-soft py-16 sm:py-20">
+    <section id="benefits" className="bg-brand-soft py-16 sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
         <div className="relative min-h-[360px] overflow-hidden rounded-lg shadow-soft sm:min-h-[430px]">
           <Image
@@ -43,10 +43,10 @@ export default function Benefits() {
             {benefits.map((benefit) => (
               <div
                 key={benefit}
-                className="flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                className="group flex gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-cyan/45 hover:shadow-soft"
               >
                 <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan transition group-hover:text-brand-blue"
                   aria-hidden="true"
                 />
                 <p className="text-sm font-semibold leading-6 text-brand-ink">
